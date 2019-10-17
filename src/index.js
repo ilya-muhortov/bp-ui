@@ -1,9 +1,5 @@
-import React, { Component } from 'react';
 
-export default class ReactColorSquare extends Component {
-  render() {
-    return (
-      <React.Fragment>hello</React.Fragment>
-    )
-  }
-}
+export { default as Dashboard } from './Dashboard';
+export { default as PageNotFound } from './Dashboard/PageNotFound';
+export { default as Layout } from './Layout';
+
