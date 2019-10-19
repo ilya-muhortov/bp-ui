@@ -1,13 +1,12 @@
 
 import React, {Component} from 'react';
-import { NavLink } from 'react-router-dom';
 import {
   Colors
 } from '@blueprintjs/core';
 import styled from 'styled-components';
 
 
-const StyledMenuItem = styled(NavLink)`
+export const StyledNavbarMenuItem = styled.span`
   padding: 8px 0 !important;
   display: flex;
   flex-direction: column;
@@ -22,14 +21,14 @@ const StyledMenuItem = styled(NavLink)`
   }
 `;
 
-const StyledMenuItemName = styled.span`
+export const StyledNavbarMenuItemName = styled.span`
   margin-top: 5px;
   font-size: 10px;
   color: ${Colors.LIGHT_GRAY1};
   margin-right: 0;
 `;
 
-const StyledMenuItemCounter = styled.span`
+export const StyledNavbarMenuItemCounter = styled.span`
   position: absolute;
     top: 3px;
     right: 3px;
@@ -41,20 +40,21 @@ const StyledMenuItemCounter = styled.span`
 `;
 
 
-export default class MenuItem extends Component {
+export default class NavbarMenuItem extends Component {
 
-  static Name = StyledMenuItemName;
-  static Counter = StyledMenuItemCounter;
+  static Item = StyledNavbarMenuItem;
+  static Name = StyledNavbarMenuItemName;
+  static Counter = StyledNavbarMenuItemCounter;
 
   render() {
     return (
-      <StyledMenuItem
+      <StyledNavbarMenuItem
         activeClassName={'bp3-active'}
         className={`bp3-button bp3-minimal bp3-large`}
         {...this.props}
       >
         {this.props.children}
-      </StyledMenuItem>
+      </StyledNavbarMenuItem>
     );
   }
 }

@@ -1,4 +1,5 @@
 var path = require('path');
+
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -21,7 +22,15 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      "styled-components": path.resolve("./node_modules", "styled-components"),
+    }
+  },
   externals: {
-    'react': 'commonjs react'
+    'react': 'commonjs react',
+    '@blueprintjs/core': 'commonjs @blueprintjs/core',
+    '@blueprintjs/icons': 'commonjs @blueprintjs/icons',
+    'styled-components': 'commonjs styled-components'
   }
 };
