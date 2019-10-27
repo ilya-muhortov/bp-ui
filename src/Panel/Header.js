@@ -1,7 +1,7 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Colors, H5, Icon } from '@blueprintjs/core';
+import { Colors, H6, Icon } from '@blueprintjs/core';
 import styled, {css} from 'styled-components';
 
 const StyledHeader = styled.div`
@@ -41,12 +41,12 @@ export default class PanelHeader extends Component {
     if (label) {
       return (
         <StyledHeader {...this.props}>
-          <H5>
+          <H6>
             {icon && (
               <Icon icon={icon} />
             )}
             {label}
-          </H5>
+          </H6>
         </StyledHeader>
       )
     }

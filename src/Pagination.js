@@ -1,6 +1,7 @@
 
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
+
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import {
@@ -18,8 +19,7 @@ const Paginator = styled.div`
     justify-content: center;
     
     .bp3-numeric-input{
-      display: inline;
-      
+      display: inline; 
       input {
         text-align: center;
       }
@@ -28,18 +28,6 @@ const Paginator = styled.div`
 
 
 export default class Pagination extends Component {
-
-  static propTypes = {
-    pagination: PropTypes.shape({
-      total_pages: PropTypes.number.isRequired,
-      page: PropTypes.number.isRequired,
-      per_page: PropTypes.number.isRequired,
-      previous: PropTypes.number,
-      next: PropTypes.number,
-    }),
-    disabled: PropTypes.bool.isRequired,
-    onChangePageNumber: PropTypes.func.isRequired,
-  };
 
   constructor(props){
     super(props);
@@ -64,6 +52,7 @@ export default class Pagination extends Component {
   componentWillReceiveProps(nextProps, nextContext) {
     const { pagination, disabled } = nextProps;
     if (!disabled && pagination) {
+      console.log(pagination.page);
       this.setState({
         page: pagination.page
       })
@@ -145,3 +134,15 @@ export default class Pagination extends Component {
     )
   }
 }
+
+Pagination.propTypes = {
+  pagination: PropTypes.shape({
+    total_pages: PropTypes.number.isRequired,
+    page: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
+    previous: PropTypes.number,
+    next: PropTypes.number,
+  }),
+  disabled: PropTypes.bool.isRequired,
+  onChangePageNumber: PropTypes.func.isRequired,
+};

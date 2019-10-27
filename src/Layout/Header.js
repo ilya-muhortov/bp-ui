@@ -66,25 +66,26 @@ export const StyledRightHeaderElement = styled.div`
 export class LayoutHeader extends Component {
 
   static propTypes = {
-    title: PropTypes.oneOfType([
-      PropTypes.element,
-      PropTypes.string
-    ]).isRequired,
+    title: PropTypes.string,
+    leftElement: PropTypes.element,
     rightElement: PropTypes.element
   };
 
   render() {
-    const { title, rightElement } = this.props;
+    const { title, leftElement, rightElement } = this.props;
     return (
       <StyledHeader>
-        <StyledHeaderContent>
-          <StyledLeftHeaderElement>
-            <H4>{title}</H4>
-          </StyledLeftHeaderElement>
-          <StyledRightHeaderElement>
-            {rightElement}
-          </StyledRightHeaderElement>
-        </StyledHeaderContent>
+        {(title || leftElement || rightElement) && (
+          <StyledHeaderContent>
+            <StyledLeftHeaderElement>
+              {title && <H4>{title}</H4>}
+              {leftElement && leftElement}
+            </StyledLeftHeaderElement>
+            <StyledRightHeaderElement>
+              {rightElement}
+            </StyledRightHeaderElement>
+          </StyledHeaderContent>
+        )}
         {this.props.children}
       </StyledHeader>
     )

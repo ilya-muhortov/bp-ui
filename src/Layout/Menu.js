@@ -27,8 +27,8 @@ export const StyledLayoutMenu = styled.div`
       margin-right: 5px;
     }
   }
-  
 `;
+
 
 export class LayoutMenu extends Component {
 

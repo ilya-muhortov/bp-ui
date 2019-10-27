@@ -28,6 +28,12 @@ const BottomToolbar = styled.div`
   flex-direction: column;
 `;
 
+const SwitchButton = styled(Button)`
+  svg {
+    transform: rotate(45deg);
+  }
+`;
+
 export default class Navbar extends Component {
 
   render() {
@@ -41,7 +47,7 @@ export default class Navbar extends Component {
           {bottomToolbar}
 
           <div className={'mt-10'}>
-            <Button
+            <SwitchButton
               onClick={() => switchWidth()}
               icon={fullWidth ? IconNames.MINIMIZE : IconNames.MAXIMIZE}
               minimal={true}

@@ -10,13 +10,15 @@ import styled, { css } from 'styled-components';
 import PanelHeader from './Header'
 
 const StyledPanel = styled(Card)`
-  position: relative;
-  display: grid;
-  padding: 0;
-  grid-template-rows: auto auto;
-  overflow: hidden;
-  border: 1px solid ${Colors.GRAY5};
-  box-shadow: none;
+  &.bp3-card {
+    position: relative;
+    display: grid;
+    padding: 0;
+    grid-template-rows: auto auto;
+    overflow: hidden;
+    border: 1px solid ${Colors.GRAY5};
+    box-shadow: none;
+  }
 `;
 
 const PanelContent = styled.div`
