@@ -4,6 +4,15 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import { Colors } from '@blueprintjs/core/lib/esm/index';
 
+const LineTag = styled.div`
+  padding: 10px;
+  border-bottom: 1px solid ${Colors.LIGHT_GRAY4};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+
 const ColTag = styled.div`
   padding: 10px;
   border-bottom: 1px solid ${Colors.LIGHT_GRAY2};
@@ -11,6 +20,14 @@ const ColTag = styled.div`
   overflow: hidden;
   white-space: pre-line;
   word-wrap: break-word;
+  
+  ${props => props.padding !== undefined && css`
+    padding: ${props.padding}px;
+  `}
+  
+  ${LineTag}:last-child {
+    border-bottom: 0;
+  }
 `;
 
 const RowTag = styled.div`
@@ -99,6 +116,7 @@ export default class Table extends Component {
   static Body = BodyTag;
   static Head = HeadTag;
   static Col = ColTag;
+  static Line = LineTag;
 
   render() {
     return (
