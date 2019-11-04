@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 import styled, { css } from 'styled-components';
-import { Colors } from '@blueprintjs/core/lib/esm/index';
+import { Colors, Spinner } from '@blueprintjs/core';
 
 const LineTag = styled.div`
   padding: 10px;
@@ -110,10 +110,31 @@ const TableTag = styled.div`
   `}
 `;
 
+const SpinnerRow = styled.div`
+  padding: 10px;
+  border-bottom: 1px solid ${Colors.LIGHT_GRAY2};
+  background: ${Colors.LIGHT_GRAY4};
+`;
+
+
+export class TableBody extends Component {
+  render() {
+    const { loading } = this.props;
+    return (
+      <BodyTag>
+        {loading && (
+          <SpinnerRow><Spinner size={20}/></SpinnerRow>
+        )}
+        {this.props.children}
+      </BodyTag>
+    )
+  }
+}
+
 
 export default class Table extends Component {
   static Row = RowTag;
-  static Body = BodyTag;
+  static Body = TableBody;
   static Head = HeadTag;
   static Col = ColTag;
   static Line = LineTag;
