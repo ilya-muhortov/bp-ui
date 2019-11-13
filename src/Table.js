@@ -119,9 +119,9 @@ const SpinnerRow = styled.div`
 
 export class TableBody extends Component {
   render() {
-    const { loading } = this.props;
+    const { loading, ...otherProps } = this.props;
     return (
-      <BodyTag>
+      <BodyTag {...otherProps}>
         {loading && (
           <SpinnerRow><Spinner size={20}/></SpinnerRow>
         )}
@@ -142,7 +142,6 @@ export default class Table extends Component {
   render() {
     return (
       <TableTag
-        className={this.props.className}
         {...this.props}
       >
         {this.props.children}

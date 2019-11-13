@@ -52,7 +52,6 @@ export default class Pagination extends Component {
   componentWillReceiveProps(nextProps, nextContext) {
     const { pagination, disabled } = nextProps;
     if (!disabled && pagination) {
-      console.log(pagination.page);
       this.setState({
         page: pagination.page
       })
